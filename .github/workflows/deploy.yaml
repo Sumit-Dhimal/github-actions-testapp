@@ -17,9 +17,9 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with: 
           host: ${{ secrets.SSH_HOST }}
-          username: root
+          username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /root/github-actions-testapp
+            cd /home/ubuntu/github-actions-testapp
             git pull
             docker compose up -d --build
