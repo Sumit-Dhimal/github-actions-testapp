@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-
+ 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Deploy Via SSH
@@ -20,6 +20,6 @@ jobs:
           username: root
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /home/ubuntu/github-actions-testapp
+            cd /root/github-actions-testapp
             git pull
             docker compose up -d --build
